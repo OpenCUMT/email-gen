@@ -9,6 +9,7 @@ export interface CommonConfig {
     brand: {
         image_url: string | ImageMetadata;
         alt: string;
+        brandStyle?: Record<string, string>;
     };
     head: {
         title: string;
@@ -31,6 +32,11 @@ const fontFamily =
     style={{
         "font-family": fontFamily,
         "max-width": "648px"
+    }}
+    rootStyle={{
+        "background-image": "linear-gradient(rgba(230, 245, 255, 0.8), rgba(210, 238, 255, 0.9)), url(https://s2.loli.net/2025/10/18/hIMXdkoBiSlxOGN.webp);",
+        "background-size": "cover",
+        "background-position": "center center",
     }}
 >
     <Article brand={conf.brand}>

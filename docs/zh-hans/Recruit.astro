@@ -1,0 +1,69 @@
+---
+import Template, { type CommonConfig } from "@/templates/Recruit.astro";
+import P from "@/components/Paragraph.astro";
+import Link from "@/components/Link.astro";
+// import Button from "@/components/Button.astro";
+import common from "@docs/_config/common.mjs";
+import Logo from "@docs/_assets/cumt-logo.webp";
+
+// const buttonStyles = {
+//     "font-weight": "600",
+//     width: "100%"
+// };
+
+const descStyles = {
+    // color: "#0991ed",
+    "text-decoration": "none",
+    opacity: "0.55"
+};
+
+const warnStyles = {
+    color: "#ff6b81",
+    "text-decoration": "none",
+    // opacity: "0.75"
+};
+
+export function defineProps(): CommonConfig {
+    return Object.assign({}, common, {
+        html_title: "欢迎加入中国矿业大学开源协会",
+        // html_lang: "en",
+        brand: {
+            image_url: Logo,
+            alt: "OpenCUMT",
+            brandStyle: {
+                "width": "auto",
+                "max-height": "128px"
+            }
+        },
+        head: {
+            title: "欢迎加入中国矿业大学开源协会"
+        },
+        footer: {
+            links: [
+                { text: "GitHub 组织", href: "https://github.com/OpenCUMT" },
+                { text: "查看彩蛋", href: "https://open.cumt.win/" }
+            ],
+            infos: ["Copyright 2025", "OpenCUMT"]
+        }
+    });
+}
+---
+
+<Template {...Astro.props}>
+    <P>亲爱的<strong>%NAME%</strong>同学：</P>
+    <P>您好！感谢您参与开源协会的面试！</P>
+    <P>鉴于您出色的表现，恭喜您通过了本次面试。我们诚挚地邀请您加入开源协会！</P>
+    <P>如您同意，请加入我们 <strong>QQ 群</strong><span style={descStyles}>（群号：%QQ_GROUP%）</span>在此一同聊天：</P>
+    <P>
+        <span>【开源饭庄2025】</span>
+        <Link href="%QQ_LINK%" target="_blank" style={{ "font-size": "14px" }}>%QQ_LINK%</Link>
+    </P>
+    <P>我们的工作将在「飞书」进行，您可以在应用商店或飞书官网下载「飞书」。访问下面的链接加入<strong>飞书团队</strong>:</P>
+    <P data-role="invite">
+        <span>【%DEPARTMENT%】</span>
+        <Link href="%INVITE_LINK%" target="_blank" style={{ "font-size": "14px" }}>%INVITE_LINK%</Link>
+    </P>
+    <P>
+        请<span style={warnStyles}>实名加入</span>以上群或团队，感谢理解！
+    </P>
+</Template>

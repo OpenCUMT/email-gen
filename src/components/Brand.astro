@@ -35,7 +35,9 @@ const img_meta = typeof image_url === "string" ? await toImageMeta(image_url) : 
             {},
             {
                 "max-width": "100%",
-                "min-height": "32px"
+                "min-height": "32px",
+                "width": "auto",
+                "height": "auto"
             },
             brandStyle
         )}

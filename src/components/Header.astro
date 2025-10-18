@@ -34,9 +34,9 @@ const { title, brand, ...rest }: Props = Astro.props;
                         padding: "0 16px",
                         "text-align": "center"
                     }}
-                    brandStyle={{
-                        "max-height": "64px"
-                    }}
+                    brandStyle={
+                        brand.brandStyle ?? { "max-height": "64px" }
+                    }
                 />
             </Line>
         )

@@ -2,9 +2,10 @@
 export interface Props extends HTMLAttributes<"table"> {
     title?: string;
     lang?: string;
+    rootStyle?: HTMLAttributes<"table">["style"];
 }
 
-const { title, lang, style, ...rest }: Props = Astro.props;
+const { title, lang, style, rootStyle, ...rest }: Props = Astro.props;
 
 const tableStyles = {
     "box-sizing": "border-box",
@@ -33,12 +34,25 @@ const tdStyles = {
     <body
         style={{
             margin: 0,
+            padding: 0,
             width: "100%",
             height: "100%"
         }}
     >
-        <table style={Object.assign({}, tableStyles, style)} {...rest}>
-            <tr><td style={tdStyles}><slot /></td></tr>
-        </table>
+    <table
+        style={Object.assign({}, {
+            width: "100%",
+            height: "100%",
+            padding: "16px",
+        }, rootStyle)}
+    >
+        <tr>
+            <td>
+                <table style={Object.assign({}, tableStyles, style)} {...rest}>
+                    <tr><td style={tdStyles}><slot /></td></tr>
+                </table>
+            </td>
+        </tr>
+    </table>
     </body>
 </html>

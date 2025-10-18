@@ -11,7 +11,7 @@
     "baseUrl": ".",
     "types": ["./global.d.ts"],
     "paths": {
-      "@/*": ["src/*"],
+      "@/*": ["./src/*"],
       "@docs/*": ["./docs/*"],
     }
   },
